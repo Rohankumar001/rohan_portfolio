@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Rohan Kumar</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General styling */
+html, body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(187, 187, 235, 0.9);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(244, 244, 247, 0.9);
+    box-shadow: 0 4px 12px rgba(44, 42, 42, 0.3);
+}
+
+.navbar-brand {
+    color: #333;
+    text-decoration: none; /* Removes underline from links */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #000;
+}
+/* Navbar list styling */
+.navbar-nav {
+    display: flex;
+    list-style: none; /* Removes bullets from list items */
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-nav .nav-link {
+    text-decoration: none; /* Removes underline from links */
+    color: #333;
+    padding: 0.6rem 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f7fafc;
+    background-color: rgba(0, 151, 230, 0.2);
+    transform: scale(1.05);
+}
+
+         /* Footer styling */
+         footer {
+            background-color: #1a1a2e;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+            font-size: 1.1rem;
+        }
+
+        footer a {
+            color: #f9ca24;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #f0932b;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll shadow effect for navbar */
+        .scrolled {
+            background-color: rgba(26, 26, 46, 0.9) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+    
+
+
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #22262b;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        .project-content p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .project-tag {
+            background: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+            animation: fadeIn 0.5s;
+        }
+
+        .close-btn {
+            color: #aaa;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 2rem;
+            font-weight: bold;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        .modal-content img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        .modal-content ul {
+            list-style: disc inside;
+            margin-bottom: 20px;
+        }
+
+        .modal-content a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .modal-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .project-content p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="/">Rohan's Portfolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'resume' %}">Resume</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'skills' %}">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'projects' %}">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <h1>My Projects</h1>
+        <p>Showcasing my work in Data Analysis, Machine Learning, and Web Development</p>
+    </header>
+
+    <section class="projects-container">
+        <!-- Project Card 1 -->
+        <div class="project-card" data-project="1">
+            <div class="project-content">
+                <h3>Netflix Dashboard</h3>
+                <p>Dashboard for Audience Viewing Preferences by Country using Tableau.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Tableau</span>
+                    <span class="project-tag">Data Visualization</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="project-card" data-project="2">
+            <div class="project-content">
+                <h3>Sales Data Dashboard</h3>
+                <p>Dashboard on Product Category using Power BI.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Power BI</span>
+                    <span class="project-tag">Data Analysis</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div class="project-card" data-project="3">
+            <div class="project-content">
+                <h3>Salary Data Dashboard</h3>
+                <p>Dashboard created using Power BI to analyze salary trends.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Power BI</span>
+                    <span class="project-tag">Data Visualization</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Card 4 -->
+        <div class="project-card" data-project="4">
+            <div class="project-content">
+                <h3>Diet Plan Recommendation System</h3>
+                <p>Django-based web app integrating API and trained model for personalized diet plans.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Django</span>
+                    <span class="project-tag">Machine Learning</span>
+                    <span class="project-tag">Streamlit</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Card 5 -->
+        <div class="project-card" data-project="5">
+            <div class="project-content">
+                <h3>YBI Foundation Internship</h3>
+                <p>Internship in Data Science and Machine Learning at YBI Foundation.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Internship</span>
+                    <span class="project-tag">Data Science</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Card 6 -->
+        <div class="project-card" data-project="6">
+            <div class="project-content">
+                <h3>Drowsiness Detection & Emotion Recognition</h3>
+                <p>Created using OpenCV, Hugging Face Transformers, PyTorch, and Django.</p>
+                <div class="project-tags">
+                    <span class="project-tag">OpenCV</span>
+                    <span class="project-tag">PyTorch</span>
+                    <span class="project-tag">Django</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Card 7 -->
+        <div class="project-card" data-project="7">
+            <div class="project-content">
+                <h3>Nandri Masala Ecommerce</h3>
+                <p>Developed a complete e-commerce website using Django with inventory and supplier management.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Django</span>
+                    <span class="project-tag">E-commerce</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Card 8 -->
+        <div class="project-card" data-project="8">
+            <div class="project-content">
+                <h3>CRUD Operations with Django REST Framework</h3>
+                <p>Implemented CRUD operations for efficient data management, deployed on PythonAnywhere.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Django REST</span>
+                    <span class="project-tag">PythonAnywhere</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Card 9 -->
+        <div class="project-card" data-project="9">
+            <div class="project-content">
+                <h3>Driver Drowsiness Detection</h3>
+                <p>Real-time detection using OpenCV and machine learning for preventing accidents.</p>
+                <div class="project-tags">
+                    <span class="project-tag">OpenCV</span>
+                    <span class="project-tag">Machine Learning</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <img src="" alt="Project Image" id="modalImage">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <ul id="modalTechnologies"></ul>
+            <a href="#" id="modalLink">View Project</a> 
+        </div>
+    </div>
+
+    <script>
+        // Project data for modals
+        const projectsData = {
+            1: {
+                title: "Netflix Dashboard",
+                description: "Dashboard for Audience Viewing Preferences by Country using Tableau.",
+                image: "images/netflix_dashboard.jpg",
+                technologies: ["Tableau", "Data Visualization"],
+                link: "#"
+            },
+            2: {
+                title: "Sales Data Dashboard",
+                description: "Dashboard on Product Category using Power BI.",
+                image: "images/sales_dashboard.jpg",
+                technologies: ["Power BI", "Data Analysis"],
+                link: "#"
+            },
+            3: {
+                title: "Salary Data Dashboard",
+                description: "Dashboard created using Power BI to analyze salary trends.",
+                image: "images/salary_dashboard.jpg",
+                technologies: ["Power BI", "Data Visualization"],
+                link: "#"
+            },
+            4: {
+                title: "Diet Plan Recommendation System",
+                description: "Django-based web app integrating API and trained model for personalized diet plans.",
+                image: "images/diet_plan.jpg",
+                technologies: ["Django", "Machine Learning", "Streamlit"],
+                link: "#"
+            },
+            5: {
+                title: "YBI Foundation Internship",
+                description: "Internship in Data Science and Machine Learning at YBI Foundation.",
+                image: "images/ybi_internship.jpg",
+                technologies: ["Internship", "Data Science"],
+                link: "#"
+            },
+            6: {
+                title: "Drowsiness Detection & Emotion Recognition",
+                description: "Created using OpenCV, Hugging Face Transformers, PyTorch, and Django.",
+                image: "images/drowsiness_detection.jpg",
+                technologies: ["OpenCV", "PyTorch", "Django"],
+                link: "#"
+            },
+            7: {
+                title: "Nandri Masala Ecommerce",
+                description: "Developed a complete e-commerce website using Django with inventory and supplier management.",
+                image: "images/nandri_masala.jpg",
+                technologies: ["Django", "E-commerce"],
+                link: "#"
+            },
+            8: {
+                title: "CRUD Operations with Django REST Framework",
+                description: "Implemented CRUD operations for efficient data management, deployed on PythonAnywhere.",
+                image: "images/crud_operations.jpg",
+                technologies: ["Django REST", "PythonAnywhere"],
+                link: "#"
+            },
+            9: {
+                title: "Driver Drowsiness Detection",
+                description: "Real-time detection using OpenCV and machine learning for preventing accidents.",
+                image: "images/drowsiness_detection.jpg",
+                technologies: ["OpenCV", "Machine Learning"],
+                link: "#"
+            }
+        };
+
+        const projectCards = document.querySelectorAll('.project-card');
+        const modal = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalImage = document.getElementById('modalImage');
+        const modalTechnologies = document.getElementById('modalTechnologies');
+        const modalLink = document.getElementById('modalLink');
+        const closeBtn = document.getElementById('closeBtn');
+
+        projectCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const projectId = card.getAttribute('data-project');
+                const project = projectsData[projectId];
+
+                modalTitle.textContent = project.title;
+                modalDescription.textContent = project.description;
+                modalImage.src = project.image;
+                modalTechnologies.innerHTML = project.technologies.map(tech => `<li>${tech}</li>`).join('');
+                modalLink.href = project.link;
+
+                modal.style.display = 'block';
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Rohan Kumar | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- JavaScript for Scroll Effect -->
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <!-- Bootstrap JS & jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

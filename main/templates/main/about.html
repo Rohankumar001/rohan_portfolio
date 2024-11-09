@@ -1,0 +1,282 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Rohan Kumar</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+
+    <style>
+        /* General Styling */
+        html, body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(187, 187, 235, 0.9);
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(244, 244, 247, 0.9);
+            box-shadow: 0 4px 12px rgba(44, 42, 42, 0.3);
+        }
+
+        /* Navbar Brand Styling */
+        .navbar-brand {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #ffffff; /* White color for the navbar brand */
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #f9ca24; /* Change navbar brand color on hover to yellow */
+        }
+
+        /* Navbar Links Styling */
+        .navbar-nav .nav-link {
+            color: #ffffff; /* White color for links */
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding: 0.6rem 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f9ca24; /* Yellow on hover */
+            background-color: rgba(245, 247, 248, 0.2);
+            border-radius: 5px;
+            transform: scale(1.05);
+        }
+
+        /* About Section Styling */
+        .about-container {
+            max-width: 800px;
+            margin: 6rem auto 3rem;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .intro {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            color: #007bff;
+            font-weight: 600;
+        }
+
+        td a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        td a:hover {
+            color: #0056b3;
+        }
+
+        /* Skills Section */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 2rem;
+        }
+
+        .skill {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .skill:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #1a1a2e;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        footer a {
+            color: #f9ca24;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #f0932b;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="/">Rohan's Portfolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'resume' %}">Resume</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'skills' %}">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'projects' %}">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <div class="about-container">
+        <h1>About Rohan Kumar</h1>
+        <p class="intro">
+            Hello! I’m <strong>Rohan Kumar</strong>, a passionate Data Analyst and Django Python Developer skilled in data visualization, machine learning, and creating scalable applications. I am eager to bring data-driven solutions to real-world problems and drive success through analytics and development.
+        </p>
+
+        <table>
+            <tr>
+                <th>Location</th>
+                <td>Theni, Tamil Nadu, India</td>
+            </tr>
+            <tr>
+                <th>Education</th>
+                <td>Master’s in Computer Application (MCA), Marian College, Kuttikanam, Kerala (2023 - Present)</td>
+            </tr>
+            <tr>
+                <th>Career Highlights</th>
+                <td>
+                    Experienced in developing analytical solutions and web applications. Key projects include a Diet Plan Recommendation System and a Django-based eCommerce platform.
+                </td>
+            </tr>
+            <tr>
+                <th>Contact</th>
+                <td>Email: <a href="mailto:rohanrajakumaran01@gmail.com">rohanrajakumaran01@gmail.com</a></td>
+            </tr>
+            <tr>
+                <th>LinkedIn</th>
+                <td><a href="https://www.linkedin.com/in/rohan-kumar-dataanalyst/" target="_blank">Rohan Kumar</a></td>
+            </tr>
+            <tr>
+                <th>GitHub</th>
+                <td><a href="https://github.com/Rohankumar001" target="_blank">github.com/Rohankumar001</a></td>
+            </tr>
+        </table>
+
+        <!-- Skills Section -->
+        <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">Django</span>
+            <span class="skill">Data Analysis</span>
+            <span class="skill">Machine Learning</span>
+            <span class="skill">Power BI</span>
+            <span class="skill">SQL</span>
+            <span class="skill">Tableau</span>
+            <span class="skill">HTML & CSS</span>
+            <span class="skill">GitHub</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Rohan Kumar. All rights reserved. <a href="/terms">Terms of Service</a> | <a href="/privacy">Privacy Policy</a></p>
+    </footer>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
