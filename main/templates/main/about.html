@@ -79,9 +79,9 @@
 
         /* About Section Styling */
         .about-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 6rem auto 3rem;
-            padding: 2rem;
+            padding: 2.5rem;
             background-color: #fff;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
@@ -108,11 +108,11 @@
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 2rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         th, td {
-            padding: 12px;
+            padding: 14px;
             text-align: left;
             vertical-align: top;
             border-bottom: 1px solid #ddd;
@@ -121,6 +121,7 @@
         th {
             color: #007bff;
             font-weight: 600;
+            width: 30%;
         }
 
         td a {
@@ -145,7 +146,7 @@
         .skill {
             background-color: #007bff;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 30px;
             font-size: 1rem;
             font-weight: 600;
@@ -163,6 +164,7 @@
             padding: 20px;
             text-align: center;
             font-size: 1.1rem;
+            margin-top: auto;
         }
 
         footer a {
@@ -217,16 +219,25 @@
         <table>
             <tr>
                 <th>Location</th>
-                <td>Theni, Tamil Nadu, India</td>
+                <td>Chennai, Tamil Nadu, India</td>
+            </tr>
+            <tr>
+                <th>Date Of Birth</th>
+                <td>04-11-2002</td>
             </tr>
             <tr>
                 <th>Education</th>
-                <td>Master’s in Computer Application (MCA), Marian College, Kuttikanam, Kerala (2023 - Present)</td>
+                <td>Master’s in Computer Application (MCA), Marian College, Kuttikanam, Kerala (2023 - 2025)<br>
+                    Bachelor of Computer Applications (BCA), Mary Matha College Of Arts and Science, Periyakulam, Tamil Nadu (2020 - 2023)</td>
             </tr>
             <tr>
                 <th>Career Highlights</th>
                 <td>
-                    Experienced in developing analytical solutions and web applications. Key projects include a Diet Plan Recommendation System and a Django-based eCommerce platform.
+                    <strong>Experience:</strong> Skilled in developing analytical solutions and web applications. Key projects include:
+                    <ul>
+                        <li><strong>Diet Plan Recommendation System:</strong> A personalized diet and exercise suggestion platform.</li>
+                        <li><strong>Django-based eCommerce Platform:</strong> A robust online store with user-friendly features and API integration for recommendations.</li>
+                    </ul>
                 </td>
             </tr>
             <tr>
@@ -243,7 +254,6 @@
             </tr>
         </table>
 
-        <!-- Skills Section -->
         <div class="skills">
             <span class="skill">Python</span>
             <span class="skill">Django</span>
@@ -254,29 +264,20 @@
             <span class="skill">Tableau</span>
             <span class="skill">HTML & CSS</span>
             <span class="skill">GitHub</span>
+            <span class="skill">API</span>
+            <span class="skill">Streamlit</span>
+
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>© 2024 Rohan Kumar. All rights reserved. <a href="/terms">Terms of Service</a> | <a href="/privacy">Privacy Policy</a></p>
+        <p>&copy; 2024 Rohan Kumar. All Rights Reserved. Connect with me on <a href="https://www.linkedin.com/in/rohan-kumar-dataanalyst/" target="_blank">LinkedIn</a> for more information.</p>
     </footer>
 
-    <!-- Bootstrap JS and jQuery -->
+    <!-- Bootstrap and jQuery Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-    <script>
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    </script>
 </body>
 </html>
