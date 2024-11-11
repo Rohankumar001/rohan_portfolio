@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -23,26 +23,30 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f4f4f9;
-            color: #333;
+            color: #000000;
+            font-size: 0.9rem; /* Adjusted for overall smaller font size */
+            line-height: 1.4; /* Kept line-height for readability */
         }
 
-        /* Navbar styling */
+        /* Transparent Navbar styling */
         .navbar {
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
+            background-color: transparent;
+            padding: 0.9rem 1.8rem;
+            font-size: 1rem; /* Reduced font size */
             font-weight: 600;
-            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+            transition: background-color 0.3s ease, box-shadow 0.4s ease;
         }
 
+        /* Navbar styling on scroll */
         .navbar.scrolled {
-            background-color: #9a9ae4;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            background-color: rgba(107, 158, 209, 0.9);
+            box-shadow: 0 4px 12px rgba(146, 43, 43, 0.3);
         }
 
         .navbar-brand {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #f9ca24;
+            font-size: 1.6rem; /* Slightly smaller brand font */
+            font-weight: 700;
+            color: #ffffff;
             font-family: 'Poppins', sans-serif;
             transition: color 0.3s ease;
         }
@@ -51,81 +55,59 @@
             color: #f0932b;
         }
 
+        /* Navbar styling */
         .navbar-nav .nav-link {
-            color: #333;
-            transition: color 0.3s ease, transform 0.3s ease;
-            font-size: 1.4rem; /* Increased font size */
-            padding: 0.8rem 1.5rem;
+            color: #ffffff;
+            font-size: 1rem; /* Adjusted for smaller text in navbar links */
+            padding: 0.8rem 1.3rem;
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 400;
+            letter-spacing: 0.1em;
         }
 
         .navbar-nav .nav-link:hover {
-            color: #0097e6;
-            background-color: rgba(0, 151, 230, 0.1);
-            border-radius: 5px;
-            transform: scale(1.2); /* Increased scale for better effect */
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
+    color: #00a8ff;
+    background-color: #000; /* Changed to solid black */
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
 
-        /* Add a glowing underline effect on the active nav link */
-        .navbar-nav .nav-item .nav-link.active::after {
-            content: "";
-            display: block;
-            width: 100%;
-            height: 3px;
-            background-color: #0097e6;
-            border-radius: 5px;
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s ease;
-        }
 
-        /* Hover effect for active nav underline */
-        .navbar-nav .nav-item .nav-link:hover::after {
-            width: 100%;
+        .navbar-nav .nav-item .nav-link.active {
+            color: #f9ca24;
+            font-weight: 700;
         }
 
         /* Hero Section */
         .hero-section {
             background: url('{% static "main/img/img.jpg" %}') no-repeat center center/cover;
-            height: 159vh;
+            height: 155vh;
             color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
-            background-position: down top; /* Move the background image slightly up */
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            max-width: 800px;
-            animation: fadeIn 3s ease-in-out;
         }
 
         .hero-title {
-            font-size: 4.5rem;
+            font-size: 3rem; /* Reduced size for main title */
             font-weight: bold;
             color: #f9ca24;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 0.08em;
         }
 
         .hero-subtitle {
-            font-size: 2rem;
-            font-weight: 400;
+            font-size: 1.5rem; /* Reduced subtitle text */
+            font-weight: 500;
             color: #e0e0e0;
         }
 
         .hero-btn {
             margin-top: 1rem;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2.4rem;
             border-radius: 30px;
-            font-size: 1.2rem;
+            font-size: 1rem; /* Adjusted button font size */
             font-weight: bold;
             background-color: #0097e6;
             color: #fff;
@@ -138,30 +120,31 @@
             transform: translateY(-5px);
         }
 
+        /* Icons in Navbar */
+        .navbar-nav .nav-item .nav-link i {
+            margin-right: 5px;
+            color: #f9ca24;
+        }
+
         /* Animations */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero-title {
-                font-size: 2.8rem;
+                font-size: 2.3rem; /* Adjusted for mobile */
             }
-
             .hero-subtitle {
-                font-size: 1.4rem;
+                font-size: 1.2rem; /* Adjusted for mobile */
             }
-
             .navbar-nav .nav-link {
-                font-size: 1.2rem; /* Adjust for mobile */
+                font-size: 0.9rem; /* Slightly smaller on mobile */
             }
         }
+        
     </style>
 </head>
 <body>
@@ -173,11 +156,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'resume' %}">Resume</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'skills' %}">Skills</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'projects' %}">Projects</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}"><i class="fas fa-user"></i>About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'resume' %}"><i class="fas fa-file-alt"></i>Resume</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'skills' %}"><i class="fas fa-chart-bar"></i>Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'projects' %}"><i class="fas fa-briefcase"></i>Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}"><i class="fas fa-envelope"></i>Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -203,7 +186,6 @@
 
     <!-- Navbar Scroll Effect Script -->
     <script>
-        // Add 'scrolled' class to navbar when scrolling
         window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
 
     <style>
-        /* General Styling */
+        /* General styling */
         html, body {
             font-family: 'Poppins', sans-serif;
             background-color: #f4f4f9;
@@ -27,16 +27,16 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-size: 1.2rem;
+            font-size: 1rem; /* Reduced base font size */
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* Navbar Styling */
+        /* Navbar styling */
         .navbar {
-            padding: 1rem 2rem;
-            font-size: 1rem;
+            padding: 0.8rem 1.6rem; /* Reduced padding */
+            font-size: 0.9rem; /* Reduced font size */
             font-weight: 500;
             transition: background-color 0.4s ease, box-shadow 0.4s ease;
             position: sticky;
@@ -50,69 +50,58 @@
             box-shadow: 0 4px 12px rgba(44, 42, 42, 0.3);
         }
 
-        /* Navbar Brand Styling */
         .navbar-brand {
-            font-size: 1.6rem;
+            color: #fcfbf8;
             font-weight: bold;
-            color: #ffffff; /* White color for the navbar brand */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.4rem; /* Reduced brand font size */
             transition: color 0.3s ease;
         }
 
-        .navbar-brand:hover {
-            color: #f9ca24; /* Change navbar brand color on hover to yellow */
-        }
-
-        /* Navbar Links Styling */
         .navbar-nav .nav-link {
-            color: #ffffff; /* White color for links */
+            color: #ddd;
             transition: color 0.3s ease, transform 0.3s ease;
-            padding: 0.6rem 1.5rem;
+            padding: 0.5rem 1rem; /* Reduced padding */
             text-transform: uppercase;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #f9ca24; /* Yellow on hover */
-            background-color: rgba(245, 247, 248, 0.2);
-            border-radius: 5px;
-            transform: scale(1.05);
+            font-size: 0.9rem; /* Reduced font size */
         }
 
         /* About Section Styling */
         .about-container {
             max-width: 900px;
-            margin: 6rem auto 3rem;
-            padding: 2.5rem;
+            margin: 4rem auto 3rem;
+            padding: 2rem;
             background-color: #fff;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             text-align: center;
-            animation: fadeInUp 1s ease-out forwards;
         }
 
         h1 {
             color: #007bff;
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
+            font-size: 2rem; /* Reduced heading size */
+            margin-bottom: 1.5rem;
             font-weight: 600;
         }
 
         .intro {
-            font-size: 1.3rem;
-            line-height: 1.8;
+            font-size: 1rem; /* Reduced intro text size */
+            line-height: 1.6;
             color: #555;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         /* Table Styling */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem; /* Reduced table font size */
         }
 
         th, td {
-            padding: 14px;
+            padding: 10px;
             text-align: left;
             vertical-align: top;
             border-bottom: 1px solid #ddd;
@@ -124,57 +113,33 @@
             width: 30%;
         }
 
-        td a {
-            color: #007bff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        td a:hover {
-            color: #0056b3;
-        }
-
         /* Skills Section */
         .skills {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
-            margin-top: 2rem;
+            gap: 10px;
+            margin-top: 1.5rem;
         }
 
         .skill {
             background-color: #007bff;
             color: white;
-            padding: 12px 25px;
+            padding: 10px 20px;
             border-radius: 30px;
-            font-size: 1rem;
+            font-size: 0.85rem; /* Reduced skill font size */
             font-weight: 600;
             transition: background-color 0.3s ease;
-        }
-
-        .skill:hover {
-            background-color: #0056b3;
         }
 
         /* Footer Styling */
         footer {
             background-color: #1a1a2e;
             color: #fff;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 0.9rem; /* Reduced footer font size */
             margin-top: auto;
-        }
-
-        footer a {
-            color: #f9ca24;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #f0932b;
         }
 
         /* Animations */
@@ -266,18 +231,13 @@
             <span class="skill">GitHub</span>
             <span class="skill">API</span>
             <span class="skill">Streamlit</span>
-
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Rohan Kumar. All Rights Reserved. Connect with me on <a href="https://www.linkedin.com/in/rohan-kumar-dataanalyst/" target="_blank">LinkedIn</a> for more information.</p>
+        <p>&copy; 2024 Rohan Kumar. All Rights Reserved. Connect with me on <a href="https://www.linkedin.com/in/rohan-kumar-dataanalyst/" target="_blank">LinkedIn</a>.</p>
     </footer>
 
-    <!-- Bootstrap and jQuery Scripts -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
